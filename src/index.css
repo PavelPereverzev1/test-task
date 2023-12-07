@@ -28,7 +28,6 @@
 /* montserrat-regular - latin */
 @font-face {
   font-display: swap;
-
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -59,11 +58,18 @@
   -moz-osx-font-smoothing: grayscale;
 
   --black: #111111;
+  --brand: #3470ff;
+  --accent: #0b44cd;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a{
+  text-decoration: none;
 }
 
 h2,
@@ -87,8 +93,8 @@ img {
   height: auto;
 }
 
-h1,
+/* h1,
 h2 {
   margin-bottom: 20px;
   margin-top: 0;
-}
+} */

@@ -4,14 +4,11 @@ import { Nav, NavbarLink } from './Menu.styled';
 const Menu = () => {
   return (
     <Nav>
-      <NavbarLink as={NavLink} to="/news">
-        News
+      <NavbarLink as={NavLink} to="/catalogue">
+        Catalogue
       </NavbarLink>
-      <NavbarLink as={NavLink} to="/notices/sell">
-        Find Pet
-      </NavbarLink>
-      <NavbarLink as={NavLink} to="/friends">
-        Our friends
+      <NavbarLink as={NavLink} to="/favorite">
+        Favourites
       </NavbarLink>
     </Nav>
   );
