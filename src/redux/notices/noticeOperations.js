@@ -6,10 +6,11 @@ export const fetchNotices = createAsyncThunk(
   'notices/fetchNotices',
   async (query, thunkAPI) => {
     const queryInstance = axios.create({
-      baseURL: 'https://65722d8ad61ba6fcc0147f61.mockapi.io',
+      // baseURL: 'https://65722d8ad61ba6fcc0147f61.mockapi.io',
+      baseURL: 'http://localhost:3001',
       params: {
-        page: query.page,
-        limit: query.limit,
+        _page: query.page,
+        _limit: query.limit,
       },
     });
 

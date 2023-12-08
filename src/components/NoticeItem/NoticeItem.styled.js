@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 274px;
   height: 426px;
   background-color: var(--white);
@@ -28,6 +30,10 @@ export const ImgThumb = styled.div`
   border-radius: 14px;
   margin-bottom: 14px;
   overflow: hidden;
+  object-fit: cover;
+  img {
+    object-fit: contain;
+  }
 `;
 
 export const Title = styled.div`
@@ -52,7 +58,7 @@ export const Info = styled.div`
   font-size: 12px;
   font-weight: 400;
   color: var(--textInfo);
-  margin-bottom: 28px;
+  margin-bottom: auto;
 `;
 
 export const Line = styled.div`

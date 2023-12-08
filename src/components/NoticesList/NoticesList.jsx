@@ -9,6 +9,7 @@ import {
 import { fetchNotices } from '../../redux/notices/noticeOperations';
 import Loader from '../Loader/Loader';
 import NoticeItem from '../NoticeItem/NoticeItem';
+import { Container } from './NoticeList.styled';
 
 const NoticesList = () => {
   const notices = useSelector(selectNotices);
@@ -21,7 +22,7 @@ const NoticesList = () => {
   }, [dispatch, query]);
 
   return (
-    <div>
+    <Container>
       {isLoading ? (
         <Loader />
       ) : (
@@ -29,7 +30,7 @@ const NoticesList = () => {
           return <NoticeItem key={notice.id} item={notice} />;
         })
       )}
-    </div>
+    </Container>
   );
 };
 
