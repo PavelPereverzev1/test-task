@@ -11,7 +11,7 @@ const Home = () => {
           flexible pick-up options and much more.
         </p>
       </TextBox>
-      <img src={heroImg} alt="" />
+      <img src={heroImg} alt="Car" />
     </Container>
   );
 };
