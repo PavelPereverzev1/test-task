@@ -55,12 +55,12 @@ export const LearnMoreBtn = styled.button`
   width: 100%;
   border-radius: 12px;
   border-color: var(--brand);
-  /* border-style: none; */
   background-color: var(--brand);
   font-size: 14px;
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
   color: var(--white);
+  transition: background-color 200ms linear;
   &:hover {
     background-color: var(--accent);
     cursor: pointer;
