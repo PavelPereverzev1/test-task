@@ -1,10 +1,12 @@
-import NoticeItem from '../../components/NoticeItem/NoticeItem';
+// import NoticeItem from '../../components/NoticeItem/NoticeItem';
+import NoticesList from '../../components/NoticesList/NoticesList';
 
 const Catalogue = () => {
   return (
     <>
       <div>
-        <NoticeItem />
+        <NoticesList />
+        {/* <NoticeItem /> */}
       </div>
     </>
   );

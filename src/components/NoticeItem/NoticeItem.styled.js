@@ -6,7 +6,23 @@ export const Container = styled.div`
   background-color: var(--white);
 `;
 
+export const Favorite = styled.button`
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--blueLight);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+`;
+
 export const ImgThumb = styled.div`
+  position: relative;
   width: 100%;
   height: 268px;
   border-radius: 14px;

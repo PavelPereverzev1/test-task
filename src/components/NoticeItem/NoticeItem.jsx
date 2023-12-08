@@ -1,24 +1,4 @@
-const item = {
-  id: 9582,
-  year: 2008,
-  make: 'Buick',
-  model: 'Enclave',
-  type: 'Suv',
-  img: 'https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/buick_enclave.jpg',
-  description:
-    'The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.',
-  fuelConsumption: '10.5',
-  engineSize: '3.6L V6',
-  accessories: ['Premium audio system', 'Panoramic sunroof', 'Leather seats'],
-  functionalities: ['Power liftgate', 'Remote start', 'Blind-spot monitoring'],
-  rentalPrice: '$40',
-  rentalCompany: 'Luxury Car Rentals',
-  address: ['Kiev', 'Ukraine', '123 Example Street'],
-  rentalConditions:
-    "Minimum age: 25\nValid driver's license\nSecurity deposit required",
-  mileage: 5858,
-};
-
+/* eslint-disable react/prop-types */
 import {
   Container,
   ImgThumb,
@@ -27,14 +7,27 @@ import {
   Line,
   Model,
   Price,
+  Favorite,
   Title,
 } from './NoticeItem.styled';
-import Img from '../../assets/images/image 1.png';
-const NoticeItem = () => {
+import { FavoriteIcon } from './FavoriteIcon';
+import { useState } from 'react';
+
+const NoticeItem = ({ item }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <Container>
       <ImgThumb>
-        <img src={Img} alt={`${item.make} ${item.model}`} />
+        <img src={item.img} alt={`${item.make} ${item.model}`} />
+
+        <Favorite onClick={toggleFavorite}>
+          <FavoriteIcon isFavorite={isFavorite}></FavoriteIcon>
+        </Favorite>
       </ImgThumb>
       <Title>
         <span>{item.make} </span>
