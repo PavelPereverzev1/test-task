@@ -4,13 +4,13 @@ import { errorMsg } from '../../helpers/notifications';
 
 export const fetchNotices = createAsyncThunk(
   'notices/fetchNotices',
-  async (query, thunkAPI) => {
+  async (page, thunkAPI) => {
     const queryInstance = axios.create({
-      // baseURL: 'https://65722d8ad61ba6fcc0147f61.mockapi.io',
-      baseURL: 'http://localhost:3001',
+      baseURL: 'https://65722d8ad61ba6fcc0147f61.mockapi.io',
+      // baseURL: 'http://localhost:3001',
       params: {
-        _page: query.page,
-        _limit: query.limit,
+        page,
+        limit: 12,
       },
     });
 

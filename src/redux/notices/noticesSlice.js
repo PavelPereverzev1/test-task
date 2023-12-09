@@ -3,11 +3,10 @@ import { fetchNotices } from './noticeOperations';
 
 const initialState = {
   items: [],
-  total: 0,
-  query: {
-    page: 1,
-    limit: 12,
-  },
+  // query: {
+  //   page: 1,
+  //   limit: 12,
+  // },
   isLoading: false,
   noticesError: null,
   isRefreshing: false,
@@ -19,6 +18,10 @@ const noticesSlice = createSlice({
   reducers: {
     setPage(state, { payload }) {
       state.query.page = payload;
+    },
+    noticesReset(state) {
+      state.items = [];
+      // state.query.page = 1;
     },
   },
   extraReducers: builder => {
@@ -34,13 +37,12 @@ const noticesSlice = createSlice({
         state.noticesError = payload;
       })
       .addCase(fetchNotices.fulfilled, (state, { payload }) => {
-        state.items = payload;
-        // state.total = payload.total;
+        state.items = state.items.concat(payload);
         state.isLoading = false;
         state.isRefreshing = false;
       });
   },
 });
 
-export const { setPage } = noticesSlice.actions;
+export const { setPage, noticesReset } = noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;

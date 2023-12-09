@@ -43,6 +43,20 @@
   src: url('./assets/fonts/montserrat-v26-latin-600.woff2') format('woff2');
 }
 
+@import-normalize;
+/* bring in normalize.css styles */
+
+html {
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 :root {
   font-family: 'Manrope', sans-serif;
   line-height: 1.5;
@@ -61,6 +75,8 @@
   --white: #ffffff;
   --brand: #3470ff;
   --accent: #0b44cd;
+  --titleText:#121417;
+  --condition:#F9F9F9;
   --textInfo: rgba(18, 20, 23, 0.50);
   --textDivider: rgba(18, 20, 23, 0.1);
 

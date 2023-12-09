@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 import { noticesReducer } from './notices/noticesSlice';
 
@@ -20,15 +20,11 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-  notices: noticesReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    auth: persistReducer(persistConfig, authReducer),
+    notices: noticesReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

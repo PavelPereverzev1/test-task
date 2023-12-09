@@ -13,7 +13,7 @@ import {
 import { FavoriteIcon } from './FavoriteIcon';
 import { useState } from 'react';
 
-const NoticeItem = ({ item }) => {
+const NoticeItem = ({ item, openModal }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = () => {
@@ -48,7 +48,12 @@ const NoticeItem = ({ item }) => {
           <span>{item.accessories[0]}</span>
         </Line>
       </Info>
-      <LearnMoreBtn type="button" onClick={() => {}}>
+      <LearnMoreBtn
+        type="button"
+        onClick={() => {
+          openModal(item);
+        }}
+      >
         Learn more
       </LearnMoreBtn>
     </Container>
