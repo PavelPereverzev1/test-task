@@ -30,9 +30,11 @@ export const ImgThumb = styled.div`
   border-radius: 14px;
   margin-bottom: 14px;
   overflow: hidden;
-  object-fit: cover;
+
   img {
-    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 `;
 
