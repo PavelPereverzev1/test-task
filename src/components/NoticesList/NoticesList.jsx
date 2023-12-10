@@ -31,13 +31,14 @@ const NoticesList = () => {
   }, [dispatch, page, notices]);
 
   useEffect(() => {
-    if (notices.length > 0 && !notices.length % 12) {
+    if (notices.length > 0 && notices.length % 12) {
       setIsActive(false);
     }
   }, [notices.length]);
 
   const handleLoadMore = () => {
     setPage(prev => prev + 1);
+    dispatch(fetchNotices(page + 1));
   };
   const openModal = item => {
     setIsModalOpen(true);
