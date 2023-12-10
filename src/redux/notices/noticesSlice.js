@@ -3,10 +3,6 @@ import { fetchNotices } from './noticeOperations';
 
 const initialState = {
   items: [],
-  // query: {
-  //   page: 1,
-  //   limit: 12,
-  // },
   isLoading: false,
   noticesError: null,
   isRefreshing: false,
@@ -18,7 +14,6 @@ const noticesSlice = createSlice({
   reducers: {
     noticesReset(state) {
       state.items = [];
-      // state.query.page = 1;
     },
   },
   extraReducers: builder => {
