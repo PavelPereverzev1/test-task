@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   column-gap: calc((100% - 2 * 274px));
+
   @media screen and (min-width: 1110px) {
     column-gap: calc((100% - 3 * 274px) / 2);
   }
@@ -14,6 +15,5 @@ export const Container = styled.div`
   }
 
   row-gap: 50px;
-  /* overflow: scroll; */
   padding-bottom: 174px;
 `;

@@ -1,45 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
+/* eslint-disable react/prop-types */
+import { useSelector } from 'react-redux';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useEffect, useState } from 'react';
 
-import {
-  selectNotices,
-  selectIsLoading,
-} from '../../redux/notices/noticesSelectors';
-import { fetchNotices } from '../../redux/notices/noticeOperations';
+import { selectIsLoading } from '../../redux/notices/noticesSelectors';
 import Loader from '../Loader/Loader';
 import NoticeItem from '../NoticeItem/NoticeItem';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ModalNotice from '../ModalNotice/ModalNotice';
 import { Container } from './NoticeList.styled';
 
-const NoticesList = () => {
-  const notices = useSelector(selectNotices);
+const NoticesList = ({ notices, handleLoadMore }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentNotice, setCurrentNotice] = useState({});
-  const [page, setPage] = useState(1);
   const isLoading = useSelector(selectIsLoading);
   const body = document.querySelector('body');
   const [isActive, setIsActive] = useState(true);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (notices.length === 0) {
-      dispatch(fetchNotices(page));
-    }
-  }, [dispatch, page, notices]);
-
   useEffect(() => {
     if (notices.length > 0 && notices.length % 12) {
       setIsActive(false);
+      return;
     }
+    setIsActive(true);
   }, [notices.length]);
 
-  const handleLoadMore = () => {
-    setPage(prev => prev + 1);
-    dispatch(fetchNotices(page + 1));
-  };
   const openModal = item => {
     setIsModalOpen(true);
     setCurrentNotice(item);
