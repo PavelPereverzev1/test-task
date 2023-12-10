@@ -29,7 +29,7 @@ const noticesSlice = createSlice({
         state.noticesError = payload;
       })
       .addCase(fetchNotices.fulfilled, (state, { payload }) => {
-        state.items = [...state.items, ...payload];
+        state.items.push(...payload);
         state.isLoading = false;
         state.isRefreshing = false;
       });

@@ -14,8 +14,6 @@ const Catalogue = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
-  console.log(filter);
-
   useEffect(() => {
     if (notices.length === 0) {
       dispatch(fetchNotices(page));

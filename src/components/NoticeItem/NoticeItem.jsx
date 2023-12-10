@@ -12,12 +12,27 @@ import {
 } from './NoticeItem.styled';
 import { FavoriteIcon } from './FavoriteIcon';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFavorites } from '../../redux/favorites/favoritesSelector';
+import {
+  setFavorite,
+  deleteFromFavorites,
+} from '../../redux/favorites/favoritesSlice';
 
 const NoticeItem = ({ item, openModal }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const favorites = useSelector(selectFavorites);
+  console.log(favorites);
+  const dispatch = useDispatch();
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(item.id));
 
   const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+    if (favorites.includes(item.id)) {
+      dispatch(deleteFromFavorites(item.id));
+      setIsFavorite(false);
+    } else {
+      dispatch(setFavorite(item.id));
+      setIsFavorite(true);
+    }
   };
 
   return (

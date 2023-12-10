@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authReducer } from './auth/slice';
 import { noticesReducer } from './notices/noticesSlice';
 import { filterReducer } from './filter/filterSlice';
+import { favoritesReducer } from './favorites/favoritesSlice';
 
 import {
   persistStore,
@@ -23,7 +23,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    favorites: persistReducer(persistConfig, favoritesReducer),
     notices: noticesReducer,
     filter: filterReducer,
   },

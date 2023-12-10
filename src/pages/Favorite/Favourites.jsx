@@ -1,7 +1,5 @@
-import Filter from '../../components/Filter/Filter';
-
 const Favorite = () => {
-  return <Filter />;
+  return;
 };
 
 export default Favorite;
