@@ -21,7 +21,6 @@ import {
 
 const NoticeItem = ({ item, openModal }) => {
   const favorites = useSelector(selectFavorites);
-  console.log(favorites);
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(favorites.includes(item.id));
 
