@@ -16,9 +16,6 @@ const noticesSlice = createSlice({
   name: 'notices',
   initialState,
   reducers: {
-    setPage(state, { payload }) {
-      state.query.page = payload;
-    },
     noticesReset(state) {
       state.items = [];
       // state.query.page = 1;
@@ -37,7 +34,7 @@ const noticesSlice = createSlice({
         state.noticesError = payload;
       })
       .addCase(fetchNotices.fulfilled, (state, { payload }) => {
-        state.items = state.items.concat(payload);
+        state.items = [...state.items, ...payload];
         state.isLoading = false;
         state.isRefreshing = false;
       });
