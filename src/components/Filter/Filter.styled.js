@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  top: 60px;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
+  background-color: var(--white);
+  padding-bottom: 10px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;

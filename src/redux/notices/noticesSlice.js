@@ -36,5 +36,5 @@ const noticesSlice = createSlice({
   },
 });
 
-export const { setPage, noticesReset } = noticesSlice.actions;
+export const { noticesReset } = noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;

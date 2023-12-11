@@ -36,13 +36,10 @@ const NoticesList = ({ notices, handleLoadMore }) => {
   };
   return (
     <Container>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        notices.map(item => {
-          return <NoticeItem key={item.id} item={item} openModal={openModal} />;
-        })
-      )}
+      {isLoading && <Loader />}
+      {notices.map(item => {
+        return <NoticeItem key={item.id} item={item} openModal={openModal} />;
+      })}
       {isActive && !isLoading ? (
         <LoadMoreBtn handleLoadMore={handleLoadMore} />
       ) : null}

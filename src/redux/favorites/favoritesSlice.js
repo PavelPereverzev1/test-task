@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  items: [],
+  item: [],
 };
 
 const favoritesSlice = createSlice({
@@ -9,11 +9,11 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     setFavorite(state, action) {
-      state.items.push(action.payload);
+      state.item.push(action.payload);
     },
     deleteFromFavorites(state, action) {
-      const index = state.items.findIndex(item => item.id === action.payload);
-      state.items.splice(index, 1);
+      const index = state.item.findIndex(elem => elem === action.payload);
+      state.item.splice(index, 1);
     },
   },
 });

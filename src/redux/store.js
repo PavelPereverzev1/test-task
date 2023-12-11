@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { noticesReducer } from './notices/noticesSlice';
 import { filterReducer } from './filter/filterSlice';
 import { favoritesReducer } from './favorites/favoritesSlice';
@@ -19,14 +19,19 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['filter'],
 };
 
+const rootReducer = combineReducers({
+  favorites: favoritesReducer,
+  notices: noticesReducer,
+  filter: filterReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: {
-    favorites: persistReducer(persistConfig, favoritesReducer),
-    notices: noticesReducer,
-    filter: filterReducer,
-  },
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

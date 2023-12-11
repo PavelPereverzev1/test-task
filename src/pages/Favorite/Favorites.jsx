@@ -13,10 +13,8 @@ const Favorite = () => {
   const [currentNotice, setCurrentNotice] = useState({});
   const body = document.querySelector('body');
   const favorites = useSelector(selectFavorites);
+  console.log(favorites);
 
-  const favoriteNotices = notices.filter(notice =>
-    favorites.includes(notice.id)
-  );
   const openModal = item => {
     setIsModalOpen(true);
     setCurrentNotice(item);
@@ -28,9 +26,11 @@ const Favorite = () => {
   };
   return (
     <Container>
-      {favoriteNotices.map(item => {
-        return <NoticeItem key={item.id} item={item} openModal={openModal} />;
-      })}
+      {notices
+        .filter(notice => favorites.includes(notice.id))
+        .map(item => {
+          return <NoticeItem key={item.id} item={item} openModal={openModal} />;
+        })}
       {isModalOpen && (
         <ModalNotice closeModal={closeModal} item={currentNotice} />
       )}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectNotices } from '../../redux/notices/noticesSelectors';
 import { selectFilter } from '../../redux/filter/filterSelectors';
 import { fetchNotices } from '../../redux/notices/noticeOperations';
+import { noticesReset } from '../../redux/notices/noticesSlice';
 import Filter from '../../components/Filter/Filter';
 import NoticesList from '../../components/NoticesList/NoticesList';
 import noticesFilter from '../../helpers/noticesFilter';
@@ -23,6 +24,10 @@ const Catalogue = () => {
   useEffect(() => {
     setFiltredData(noticesFilter(notices, filter));
   }, [filter, notices]);
+
+  useEffect(() => {
+    dispatch(noticesReset());
+  }, [dispatch]);
 
   const handleLoadMore = () => {
     setPage(prev => prev + 1);

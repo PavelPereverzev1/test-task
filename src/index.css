@@ -50,6 +50,10 @@ html {
   box-sizing: border-box;
   width: 100vw;
 }
+ 
+body{
+  margin-top: 0;
+}
 
 *,
 *::before,
@@ -114,8 +118,4 @@ img {
   height: auto;
 }
 
-/* h1,
-h2 {
-  margin-bottom: 20px;
-  margin-top: 0;
-} */
+
