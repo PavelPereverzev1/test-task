@@ -13,7 +13,7 @@ const Favorite = () => {
   const [currentNotice, setCurrentNotice] = useState({});
   const body = document.querySelector('body');
   const favorites = useSelector(selectFavorites);
-
+  console.log(favorites);
   const openModal = item => {
     setIsModalOpen(true);
     setCurrentNotice(item);
