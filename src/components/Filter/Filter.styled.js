@@ -4,7 +4,7 @@ export const Form = styled.form`
   top: 60px;
   left: 0;
   position: sticky;
-  z-index: 1100;
+  z-index: 5;
   background-color: var(--white);
   padding-bottom: 10px;
   padding-top: 20px;
@@ -30,11 +30,15 @@ export const InputWrapper = styled.label`
     line-height: 1.11;
     background-color: var(--inputsBg);
     border-style: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   select {
     border-radius: 14px;
     padding: 14px 18px;
+    scrollbar-width: 1px;
   }
 
   .from {
